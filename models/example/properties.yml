@@ -7,3 +7,4 @@ sources:
     schema: VIVEKKETHA_SCHEMA
     tables:
       - name: US_ACCIDENTS_DATA_RAW_STAGE
+      - name: STAGE_US_DATA

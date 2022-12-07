@@ -1,4 +1,6 @@
-{{ config(materialized='incremental') }}select b.ADD_ID,z.DATE_ID,c.DORN_ID,d.RES_ID,
+{{ config(pre_hook="truncate table {{source('properties','US_ACCIDENTS_DATA_RAW_STAGE')}}",
+materialized='incremental') }}
+select b.ADD_ID,z.DATE_ID,c.DORN_ID,d.RES_ID,
 a.WIND_CHILL_F_ as WIND_CHILL,a.HUMIDITY_ as HUMIDITY,a.PRESSURE_IN_ as PRESSURE,a.VISIBILITY_MI_ as VISIBILITY,
 a.WIND_DIRECTION as WIND_DIRECTION, a.WIND_SPEED_MPH_ as WIND_SPEED,
 a.PRECIPITATION_IN_ as PRECIPITATION, a.WEATHER_CONDITION as WEATHER_CONDITION,count(a.ID) as No_of_Accidents
